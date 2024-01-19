@@ -5,4 +5,20 @@
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms. *)
 
 module Answer = struct
+    let fib limit =
+        let rec aux acc n2 n1 =
+            let next = n1 + n2 in
+            if next > limit then acc
+            else aux (next :: acc) n1 next
+        in
+        List.rev(aux [1; 0] 0 1);;
+
+    let rec sum = function
+        | [] -> 0
+        | h :: t -> h + sum t
+
+    let is_even n = n mod 2 = 0
+    let filter_even l = List.filter is_even l
+
+    let () = print_int (sum (filter_even (fib 4000000)))
 end
