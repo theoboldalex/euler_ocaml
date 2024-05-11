@@ -19,4 +19,5 @@ module UpdatedAnswer = struct
       | n when n < 3 -> 0
       | n when n mod 3 = 0 || n mod 5 = 0 -> n + f (n-1)
       | _ -> f (n-1);;
+  let () = print_int (f 999);;
 end
