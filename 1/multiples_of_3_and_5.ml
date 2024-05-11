@@ -12,3 +12,11 @@ module Answer = struct
         | h :: t -> h + sum t
     let () = print_int (sum matches)
 end
+
+module UpdatedAnswer = struct
+  let rec f n = 
+    match n with
+      | n when n < 3 -> 0
+      | n when n mod 3 = 0 || n mod 5 = 0 -> n + f (n-1)
+      | _ -> f (n-1);;
+end
